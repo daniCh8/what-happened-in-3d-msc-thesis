@@ -170,4 +170,3 @@ src/dummy_check.py
 src/test.ipynb
 src/test_multi.sh
 src/test-metrics.sh
-*.png
