@@ -83,7 +83,7 @@ Let's go over the building blocks:
 
 ### Dataset
 
-The dataset can be found [at this link](). The tar file should be downloaded and extracted in `/indoor-scene-activity-recognition/`. The structure of the dataset is the following:
+The dataset can be found [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4FGH8CSxh1sEBOFBA?e=akxH1X). The tar file should be downloaded and extracted in `/indoor-scene-activity-recognition/`. The structure of the dataset is the following:
 
 ```
 /indoor-scene-activity-recognition/
@@ -321,11 +321,11 @@ Below is a sample inference output.
 
 ### K3D
 
-The best performing model of the research. It's from the [Three-Dimensional Approach](#three-dimensional-approach) approach, and uses a KPConv backbone. It can be downloaded at this link.
+The best performing model of the research. It's from the [Three-Dimensional Approach](#three-dimensional-approach) approach, and uses a KPConv backbone. It can be downloaded [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4FHrETV4EviOwoBoA?e=htEdjo).
 
 ### ResNet50-Baseline
 
-The best performing two-dimensional baseline. It's from the [Two-Dimensional Baseline](#two-dimensional-baseline) approach, and uses a ResNet50 backbone. It can be downloaded at this link.
+The best performing two-dimensional baseline. It's from the [Two-Dimensional Baseline](#two-dimensional-baseline) approach, and uses a ResNet50 backbone. It can be downloaded [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4FIyTegzeN8855mrA?e=fdcpWT).
 
 ### MultiView-Baseline
 
