@@ -15,6 +15,15 @@
     -   [Run Training](#run-training)
         -   [Model Selection](#model-selection)
         -   [Data Augmentation](#data-augmentation)
+    -   [Check Model Performance](#check-model-performance)
+        -   [Metrics Generation](#metrics-generation)
+            -   [Sample Metrics Output: Confusion Matrix](#sample-metrics-output-confusion-matrix)
+            -   [Sample Metrics Output: tSNE Plot](#sample-metrics-output-tsne-plot)
+        -   [Inference](#inference)
+    -   [Pre-Trained Models](#pre-trained-models)
+        -   [K3D](#k3d)
+        -   [ResNet50-Baseline](#resnet50-baseline)
+        -   [MultiView-Baseline](#multiview-baseline)
 
 <!-- /TOC -->
 
@@ -213,3 +222,111 @@ The available models/encoders pairs are the following:
 ### Data Augmentation
 
 I structured the dataset so that each category has a unique opposite class. This class pairing allows to easily augment the data by doing random input flipping on the data samples. In theory, the size of the dataset could be doubled by feeding, for each data sample, both the original input and the flipped one. However, surprisingly, experimental results show that flipping does not end up helping the performance of the model. To use data flipping, set the `fp` parameter of the training script.
+
+## Check Model Performance
+
+### Metrics Generation
+
+To investigate on the performances of the models, I created a script that generates a classification score, a classification heatmap, and a t-SNE plot. It can be used in the following way:
+
+```bash
+python classifier_metrics.py [-ck --ckpt] [-c --cpu] [-g --gpu]
+```
+
+Let's break down the argument of the script:
+
+-   `-ck --ckpt` sets the path to the trained folder.
+-   `-c --cpu` controls if to run the training on CPU. Default is `False`.
+-   `-g --gpu` controls the index of the GPU to use. Default is `-1` (best available GPU will be used).
+
+#### Sample Metrics Output: Confusion Matrix
+
+Below is a sample confusion matrix outputted by the script...
+
+![confusion-matrix](/assets/training_confusion_matrix.png)
+
+#### Sample Metrics Output: tSNE Plot
+
+...and a sample tSNE plot outputted by the script:
+
+![confusion-matrix](/assets/training_tsne.png)
+
+### Inference
+
+To check on individual samples, I created another script that can be used in the following way:
+
+```bash
+python classifier_inference.py [-ck --ckpt] [-c --cpu] [-g --gpu] [-k --key] [-chg --changed]
+```
+
+-   `-ck --ckpt` sets the path to the trained folder.
+-   `-c --cpu` controls if to run the training on CPU. Default is `False`.
+-   `-g --gpu` controls the index of the GPU to use. Default is `-1` (best available GPU will be used).
+-   `-k --key` can be used paired to `-chg --changed to set a specific inference case.
+-   `-chg --changed` can be used paired to `-k --key` to set a specific inference case.
+
+Below is a sample inference output.
+
+```bash
+569d8f1c-72aa-2f24-89bb-0df7a0653c26/12/shifted:
+        PREDICTED: ['tidied up']; GROUNDTRUTH: ['shifted']
+
+531cfefe-0021-28f6-8c6c-35ae26d2158f/18/moved:
+        PREDICTED: ['moved']; GROUNDTRUTH: ['moved']
+
+8e0f1c2f-9e28-2339-85ae-05fc50d1a3a7/41/added:
+        PREDICTED: ['added']; GROUNDTRUTH: ['added']
+
+75c259a5-9ca2-2844-9441-d72912c1e696/109/added:
+        PREDICTED: ['added']; GROUNDTRUTH: ['added']
+
+20c993bf-698f-29c5-8549-a69fd169c1e1/81/added:
+        PREDICTED: ['added']; GROUNDTRUTH: ['added']
+
+531cff10-0021-28f6-8f94-80db8fdbbbee/25/rotated:
+        PREDICTED: ['tidied up']; GROUNDTRUTH: ['rotated']
+
+20c9939b-698f-29c5-85a4-68c286bd7053/8/shifted:
+        PREDICTED: ['shifted']; GROUNDTRUTH: ['shifted']
+
+8e0f1c2f-9e28-2339-85ae-05fc50d1a3a7/44/added:
+        PREDICTED: ['added']; GROUNDTRUTH: ['added']
+
+8eabc41a-5af7-2f32-8677-c1e3f9b04e62/30/shifted:
+        PREDICTED: ['tidied up']; GROUNDTRUTH: ['shifted']
+
+8eabc41a-5af7-2f32-8677-c1e3f9b04e62/6/rearranged:
+        PREDICTED: ['shifted']; GROUNDTRUTH: ['rearranged']
+
+7ab2a9c5-ebc6-2056-89c7-920e98f0cf5a/44/removed:
+        PREDICTED: ['removed']; GROUNDTRUTH: ['removed']
+
+10b17967-3938-2467-88c5-a299519f9ad7/3/rearranged:
+        PREDICTED: ['closed']; GROUNDTRUTH: ['rearranged']
+
+10b1792a-3938-2467-8b4e-a93da27a0985/36/tidied up:
+        PREDICTED: ['tidied up']; GROUNDTRUTH: ['tidied up']
+
+751a557f-fe61-2c3b-8f60-a1ba913060c4/34/shifted:
+        PREDICTED: ['tidied up']; GROUNDTRUTH: ['shifted']
+
+10b1792e-3938-2467-8bb3-172148ae5a67/14/shifted:
+        PREDICTED: ['shifted']; GROUNDTRUTH: ['shifted']
+
+8eabc418-5af7-2f32-85a1-a2709b29c46d/7/removed:
+        PREDICTED: ['added']; GROUNDTRUTH: ['removed']
+```
+
+## Pre-Trained Models
+
+### K3D
+
+The best performing model of the research. It's from the [Three-Dimensional Approach](#three-dimensional-approach) approach, and uses a KPConv backbone. It can be downloaded at this link.
+
+### ResNet50-Baseline
+
+The best performing two-dimensional baseline. It's from the [Two-Dimensional Baseline](#two-dimensional-baseline) approach, and uses a ResNet50 backbone. It can be downloaded at this link.
+
+### MultiView-Baseline
+
+The best performing model of the research. It's from the [Multi-View Baseline](#multi-view-baseline) approach, and uses a ResNet50 backbone and 6 different input points of view. It can be downloaded at this link.
