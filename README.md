@@ -83,7 +83,7 @@ Let's go over the building blocks:
 
 ### Dataset
 
-The dataset can be found [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4FGH8CSxh1sEBOFBA?e=akxH1X). The tar file should be downloaded and extracted in `/indoor-scene-activity-recognition/`. The structure of the dataset is the following:
+The dataset can be found [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4IK_Pqwh-6UrJ-FKg?e=Mgws6W). The tar file should be downloaded and extracted in `/indoor-scene-activity-recognition/`. The structure of the dataset is the following:
 
 ```
 /indoor-scene-activity-recognition/
