@@ -90,6 +90,8 @@ The dataset can be found [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4FGH8CS
 |-- <scan_id>
     |-- caption.txt
     List of changes in this <scan_id>
+    |-- change-caption.txt
+    Change caption between reference and changed scene
     |-- meta.txt
     Metadata for this <scan_id>
     <action_dir>
