@@ -331,4 +331,4 @@ The best performing two-dimensional baseline. It's from the [Two-Dimensional Bas
 
 ### MultiView-Baseline
 
-The best performing model of the research. It's from the [Multi-View Baseline](#multi-view-baseline) approach, and uses a ResNet50 backbone and 4 different input points of view. It can be downloaded [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4FJb3HdCaqYFS1hBQ?e=cAzSD7).
+The best performing multi-view model. It's from the [Multi-View Baseline](#multi-view-baseline) approach, and uses a ResNet50 backbone and 4 different input points of view. It can be downloaded [at this link](https://1drv.ms/u/s!Am0bH-nj75Y6x4FJb3HdCaqYFS1hBQ?e=cAzSD7).
